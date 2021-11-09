@@ -1,10 +1,10 @@
 from kivymd.app import MDApp
-from kivymd.uix.screen import MDScreen
-from kivy.uix.screenmanager import ScreenManager
-from kivy.uix.widget import Widget
-#from kivymd.uix.list import MDList,OneLineListItem
+# from kivymd.uix.screen import MDScreen
+# from kivy.uix.screenmanager import ScreenManager
+# from kivy.uix.widget import Widget
+from kivymd.uix.list import MDList,OneLineListItem
 #from kivy.uix.scrollview import ScrollView
-from kivymd.uix.boxlayout import BoxLayout
+# from kivymd.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
 
 
@@ -47,17 +47,29 @@ class MyToDo(MDApp):
         if obj.icon == "priority-high":
             self.add_task_high()
         elif obj.icon == "priority-low":
-            print("Save the task as severity 2 in the DB")
+            self.add_task_low()
         else:
             print("Mark the task as done in the DB")
 
     def add_task_high(self):
         print("Save the task as severity 1 in the DB and show in list")
         print(self.root.ids.textfield.text)
-        items = self.root.ids.textfield.text
-        self.root.ids.list.text = items
+
+        #while self.root.ids.textfield.text != "":
+        list1_items = self.root.ids.textfield.text
+        self.root.ids.container.add_widget(OneLineListItem(text=list1_items))
+        #self.root.ids.list1.text = list1_items
+       # self.root.ids.list1.insert(self.root.ids.list1.text)
         self.root.ids.textfield.text = ""
+
        # self.root.ids.but.close()
+
+    def add_task_low(self):
+        print("Save the task as severity 2 in the DB and show in the list")
+        print(self.root.ids.textfield.text)
+        list2_items = self.root.ids.textfield.text
+        self.root.ids.list2.text = list2_items
+        self.root.ids.textfield.text = ""
 
 if __name__ == "__main__":
     MyToDo().run()

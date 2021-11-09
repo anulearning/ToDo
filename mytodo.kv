@@ -1,29 +1,39 @@
-FloatLayout:
-    MDTextField:
-        id: textfield
-        hint_text: 'Add Task'
-        font_size: 15
-        required: True
-        #helper_text: ""
-        #helper_text_mode: "on_focus"
-        pos_hint: {'center_x': 0.2, 'center_y': 0.1}
-        size_hint: 0.35, 0.15
-        multiline: True
+<MyLayout>
+ScrollView:
+    do_scroll_y: True
+    FloatLayout:
+        MDTextField:
+            id: textfield
+            hint_text: 'Add Task'
+            font_size: 15
+            required: True
+            #helper_text: ""
+            #helper_text_mode: "on_focus"
+            pos_hint: {'center_x': 0.2, 'center_y': 0.1}
+            size_hint: 0.35, 0.15
+            multiline: True
 
-    MDFloatingActionButtonSpeedDial:
-        id: but
-        data: {'Top Priority': 'priority-high', 'Low Priority': 'priority-low', 'Accomplished': 'check'}
-        rotation_root_button: True
-       # hint_animation : True
-        callback: app.call
+        MDFloatingActionButtonSpeedDial:
+            id: but
+            data: {'Top Priority': 'priority-high', 'Low Priority': 'priority-low', 'Accomplished': 'check'}
+            rotation_root_button: True
+           # hint_animation : True
+            callback: app.call
 
-    OneLineListItem:
-        id: list
-#        text: textfield.text
-#        text: self.root.items
+    #    OneLineListItem:
+    #        id: list1
+    #        text: textfield.text
+    #        text: self.root.items
+       # ScrollView:
+        MDList:
+            id: container
+            pos_hint: {'center_x': 0.5, 'center_y': 0.9}
 
-#    MDFloatingActionButton:
-#        icon: 'priority-high'
-#        pos_hint: {"center_x": .2, "center_y": .9}
-#        size_hint_x: None
-#        width: 200
+
+    #    OneLineListItem:
+    #        id: list2
+    #    MDFloatingActionButton:
+    #        icon: 'priority-high'
+    #        pos_hint: {"center_x": .2, "center_y": .9}
+    #        size_hint_x: None
+    #        width: 200
